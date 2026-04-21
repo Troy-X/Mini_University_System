@@ -1,0 +1,17 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.StudentDepartmentVM.StudentDepartmentEditVM
+
+<h1>Update Existing Department</h1>
+
+<form method="post" asp-action="Edit">
+    <input asp-for="StudentDepartmentId" type="hidden" />
+
+    <label asp-for="StudentDepartmentName">Department Name</label>
+    <input asp-for="StudentDepartmentName" class="form-control" />
+
+    <label asp-for="StudentDepartmentCode">Department Code</label>
+    <input asp-for="StudentDepartmentCode" class="form-control" />
+
+    <br />
+    <button class="btn btn-warning btn-sm" type="submit">Save</button>
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Cancel</a>
+</form>

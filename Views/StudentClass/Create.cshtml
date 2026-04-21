@@ -1,0 +1,36 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.StudentClassVM.StudentClassCreateVM
+
+@{
+    var teachers = ViewData["Teachers"] as IEnumerable<SchoolSystem.ViewModels.SchoolVm.TeacherVM.TeacherListVM>;
+}
+
+<form method="post" asp-action="Create">
+    
+    <label asp-for="StudentClassName">Class Name</label>
+    <input asp-for="StudentClassName" class="form-control" />
+
+    <label asp-for="StudentLevel">Level</label>
+    <select asp-for="StudentLevel" class="form-control">
+        <option value="">-- Select Level --</option>
+        <option value="100Level">100Level</option>
+        <option value="200Level">200Level</option>
+        <option value="300Level">300Level</option>
+        <option value="400Level">400Level</option>
+        <option value="500Level">500Level</option>
+        <option value="600Level">600Level</option>
+        <option value="700Level">700Level</option>
+    </select>
+
+    <label asp-for="TeacherId">Teacher</label>
+    <select asp-for="TeacherId" class="form-control">
+        <option value="">-- Select Teacher --</option>
+
+        @foreach(var teacher in teachers)
+        {
+            <option value="@teacher.TeacherId">@teacher.TeacherName</option>
+        }
+    </select>
+
+    <br />
+    <button class="btn btn-success btn-sm" type="submit">Save</button>
+</form>

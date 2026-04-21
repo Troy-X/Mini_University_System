@@ -1,0 +1,58 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.StudentVM.StudentCreateVM
+
+@{
+    var departments = ViewData["Departments"] as IEnumerable<SchoolSystem.ViewModels.SchoolVm.StudentDepartmentVM.StudentDepartmentListVM>;
+
+    var classes = ViewData["Classes"] as IEnumerable<SchoolSystem.ViewModels.SchoolVm.StudentClassVM.StudentClassListVM>;
+}
+
+<form method="post" asp-action="Create">
+
+    <label asp-for="StudentFirstName">First Name</label>
+    <input asp-for="StudentFirstName" class="form-control" />
+
+    <label asp-for="StudentLastName">Last Name</label>
+    <input asp-for="StudentLastName" class="form-control" />
+
+    <label asp-for="StudentMatricNo">Matric Number</label>
+    <input asp-for="StudentMatricNo" class="form-control" />
+
+    <label asp-for="StudentEmail">Email</label>
+    <input asp-for="StudentEmail" class="form-control" />
+
+    <label asp-for="StudentPhoneNO">Phone Number</label>
+    <input asp-for="StudentPhoneNO" class="form-control" />
+
+    <label asp-for="StudentGender">Gender</label>
+    <select asp-for="StudentGender" class="form-control">
+        <option value="">-- Select Gender --</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+
+    <label asp-for="StudentDOB">Date of Birth</label>
+    <input asp-for="StudentDOB" type="date" class="form-control" />
+
+    <label asp-for="StudentDepartmentId">Department</label>
+    <select asp-for="StudentDepartmentId" class="form-control">
+        <option value="">-- Select Department --</option>
+
+        @foreach(var department in departments)
+        {
+            <option value="@department.StudentDepartmentId">@department.StudentDepartmentName</option>
+        }
+    </select>
+
+    <label asp-for="StudentClassId">Class</label>
+    <select asp-for="StudentClassId" class="form-control">
+        <option value="">-- Select Class --</option>
+
+        @foreach(var classs in classes)
+        {
+            <option value="@classs.StudentClassId">@classs.StudentClassName</option>
+        }
+    </select>
+
+    <br />
+    <button class="btn btn-primary btn-sm" type="submit">Save</button>
+</form>

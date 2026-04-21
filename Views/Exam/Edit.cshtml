@@ -1,0 +1,26 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.ExamVM.ExamEditVM
+
+<form method="post" asp-action="Edit">
+    <input asp-for="ExamId" type="hidden" />
+
+    <label asp-for="ExamName">Exam Name</label>
+    <select asp-for="ExamName" class="form-control">
+        <option value="">-- Select Exam --</option>
+        <option value="Quiz">Quiz</option>
+        <option value="Midterm">Midterm</option>
+        <option value="Final">Final</option>
+    </select>
+
+    <label asp-for="Term">Semester</label>
+    <select asp-for="Term" class="form-control">
+        <option value="">-- Select Semester --</option>
+        <option value="First Semester">First Semester</option>
+        <option value="Second Semester">Second Semester</option>
+    </select>
+
+    <label asp-for="Session">Session</label>
+    <input asp-for="Session" class="form-control" placeholder="e.g 2022/2023" />
+
+    <br />
+    <button class="btn btn-success btn-sm" type="submit">Save</button>
+</form>

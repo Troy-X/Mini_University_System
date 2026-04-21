@@ -1,0 +1,40 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.StudentCourseVM.StudentCourseDeleteVM
+
+@{
+    var students = ViewData["Students"] as IEnumerable<SchoolSystem.ViewModels.SchoolVm.StudentVM.StudentListVM>;
+    var courses = ViewData["Courses"] as IEnumerable<SchoolSystem.ViewModels.SchoolVm.CourseVM.CourseListVM>;
+}
+
+<form method="post" asp-action="Delete">
+    <input asp-for="StudentCourseId" type="hidden" />
+
+    <label asp-for="StudentId">Student</label>
+    <select asp-for="StudentId" class="form-control">
+        <option value="">-- Select Student --</option>
+
+        @foreach (var student in students)
+        {
+            <option value="@student.StudentId">@student.StudentName</option>
+        }
+    </select>
+
+    <label asp-for="CourseId">Course</label>
+    <select asp-for="CourseId" class="form-control">
+        <option value="">-- Select Course --</option>
+
+        @foreach (var course in courses)
+        {
+            <option value="@course.CourseId">@course.CourseTitle</option>
+        }
+    </select>
+
+    <label asp-for="DateEnrolled">Date Enrolled</label>
+    <input asp-for="DateEnrolled" type="date" class="form-control" />
+
+    <label asp-for="Grade">Grade</label>
+    <input asp-for="Grade" class="form-control" />
+
+
+    <br />
+    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+</form>

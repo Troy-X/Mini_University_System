@@ -1,0 +1,33 @@
+﻿@model SchoolSystem.ViewModels.SchoolVm.TeacherVM.TeacherDeleteVM
+
+<h1>Delete Teacher</h1>
+
+<form method="post" asp-action="Delete">
+    <input asp-for="TeacherId" type="hidden" />
+
+    <label asp-for="TeacherFirstName">First Name</label>
+    <input asp-for="TeacherFirstName" class="form-control" />
+
+    <label asp-for="TeacherLastName">Last Name</label>
+    <input asp-for="TeacherLastName" class="form-control" />
+
+    <label asp-for="TeacherEmail">Email</label>
+    <input asp-for="TeacherEmail" class="form-control" />
+
+    <label asp-for="TeacherPhoneNO">Phone Number</label>
+    <input asp-for="TeacherPhoneNO" class="form-control" />
+
+    <label asp-for="TeacherQualification">Qualifications</label>
+    <select asp-for="TeacherQualification" class="form-control">
+        <option value="">-- Select Qualification --</option>
+        <option value="School Cert">School Cert</option>
+        <option value="ND">ND</option>
+        <option value="BSC/HND">BSC/HND</option>
+        <option value="MSC">MSC</option>
+        <option value="PHD">PHD</option>
+    </select>
+
+    <br />
+    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Cancel</a>
+</form>

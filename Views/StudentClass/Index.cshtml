@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SchoolSystem.ViewModels.SchoolVm.StudentClassVM.StudentClassListVM>
+
+<h1>Classes</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Class Name</th>
+        <th>Level</th>
+        <th>Teacher</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach(var classes in Model)
+    {
+        <tr>
+            <td>@classes.StudentClassName</td>
+            <td>@classes.StudentLevel</td>
+            <td>@classes.TeacherName</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning btn-sm" asp-route-id="@classes.StudentClassId">Update</a>
+                <a asp-action="Delete" class="btn btn-danger btn-sm" asp-route-id="@classes.StudentClassId">Delete</a>
+
+            </td>
+        </tr>
+    }
+</table>
+<a asp-action="Create" class="btn btn-primary btn-sm">Create</a>
